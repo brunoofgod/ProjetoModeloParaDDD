@@ -1,0 +1,88 @@
+﻿@model BrunoofgodArch.MVC.ViewModels.ContatoViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ContatoViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDoVendedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDoVendedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDaEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDaEmpresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDoContato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDoContato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SobreNomeDoContato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SobreNomeDoContato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDeValidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDeValidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDeContato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDeContato)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

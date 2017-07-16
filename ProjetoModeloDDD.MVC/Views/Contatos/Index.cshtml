@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BrunoofgodArch.MVC.ViewModels.ContatoViewModel>
+
+@{
+    ViewBag.Title = "Lista de contatos";
+}
+
+<h2>Contatos cadastrados</h2>
+
+<p>
+    @Html.ActionLink("Adicionar novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeDoVendedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeDaEmpresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeDoContato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SobreNomeDoContato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDeValidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDeContato)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDoVendedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDaEmpresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDoContato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SobreNomeDoContato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDeValidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDeContato)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ContatoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ContatoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ContatoId })
+        </td>
+    </tr>
+}
+
+</table>

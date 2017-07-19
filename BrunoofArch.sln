@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.2 - Web", "0.2 - Web", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoModeloDDD.Vue", "ProjetoModeloDDD.Vue\ProjetoModeloDDD.Vue.csproj", "{2FFC2949-1F50-4FC7-97A3-9C5A97AF55E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrunoofgodArch.Api", "ProjetoModeloDDD.Api\BrunoofgodArch.Api.csproj", "{26D4413E-766C-43B4-9232-08501FB8ECA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{2FFC2949-1F50-4FC7-97A3-9C5A97AF55E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FFC2949-1F50-4FC7-97A3-9C5A97AF55E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FFC2949-1F50-4FC7-97A3-9C5A97AF55E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26D4413E-766C-43B4-9232-08501FB8ECA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26D4413E-766C-43B4-9232-08501FB8ECA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26D4413E-766C-43B4-9232-08501FB8ECA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26D4413E-766C-43B4-9232-08501FB8ECA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +79,6 @@ Global
 		{F7D7D85D-7D77-4CE1-84A4-2D0B4F44EB37} = {E693A420-2778-47BF-984C-38074F3CE882}
 		{FC4A2D59-4421-42DF-9713-43BC2FCFBB7E} = {E693A420-2778-47BF-984C-38074F3CE882}
 		{2FFC2949-1F50-4FC7-97A3-9C5A97AF55E3} = {72715627-80AD-4EE4-BE68-EE392FA72E71}
+		{26D4413E-766C-43B4-9232-08501FB8ECA6} = {F7D7D85D-7D77-4CE1-84A4-2D0B4F44EB37}
 	EndGlobalSection
 EndGlobal

@@ -50,6 +50,13 @@
       <Project>{984cb356-b992-441e-bf81-a36d1b30add0}</Project>
       <Name>BrunoofArch.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjetoModeloDDD.Infra.Data\BrunoofArch.Infra.Data.csproj">
+      <Project>{89389cae-3b3a-4365-a012-d33af64a829c}</Project>
+      <Name>BrunoofArch.Infra.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

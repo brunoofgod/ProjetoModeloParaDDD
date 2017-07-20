@@ -14,23 +14,48 @@
               </md-table-row>
             </md-table-header>
           <md-table-body>
-            <md-table-row v-for="(row, index) in 80" :key="index">
-              <md-table-cell>Um valor qualquer</md-table-cell>
-              <md-table-cell v-for="(col, index) in 7" :key="index">10</md-table-cell>
+            <md-table-row v-for="(contato, index) in contatos" :key="index">
+
+              <md-table-cell></md-table-cell>
+              <md-table-cell>Um lvalor quaquer</md-table-cell>
+              <md-table-cell>Um lvalor quaquer</md-table-cell>
+              <md-table-cell>Um lvalor quaquer</md-table-cell>
+              <md-table-cell>Um lvalor quaquer</md-table-cell>
+              <md-table-cell>Um lvalor quaquer</md-table-cell>
+              <md-table-cell>Um lvalor quaquer</md-table-cell>
+              <md-table-cell>Um lvalor quaquer</md-table-cell>
+
             </md-table-row>
           </md-table-body>
           </md-table>
         </div>
 </template>
 <script>
+
+import axios from 'axios'
+
 export default {
   name: 'Listagem',
   data () {
     return {
-      msg: 'Welcome to Contatos'
+      contatos: []
+    }
+  },  
+  methods: {
+    getContatos () {
+      axios.get('http://localhost:58210/api/Contato/' )
+        .then((resp) => {
+          contatos = JSON.parse(resp.data);
+          console.log(resp)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
   },
-  
+  beforeMount(){
+    this.getContatos();
+  }
 }
 </script>
 <style scopped>

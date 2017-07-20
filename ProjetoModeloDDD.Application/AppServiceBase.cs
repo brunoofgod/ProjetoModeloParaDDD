@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BrunoofgodArch.Application
 {
-    public class AppServiceBase<TEntity> : IDisposable, IAppServiceBase<TEntity> where TEntity : class
+    public class AppServiceBase<TEntity> : IDisposable, IAppServiceBase<TEntity> where TEntity : class, new()
     {
         private readonly IServiceBase<TEntity> _serviceBase;
 

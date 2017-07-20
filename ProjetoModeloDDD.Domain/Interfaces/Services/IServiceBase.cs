@@ -2,7 +2,7 @@
 
 namespace BrunoofgodArch.Domain.Interfaces.Services
 {
-    public interface IServiceBase<TEntity> where TEntity : class
+    public interface IServiceBase<TEntity> where TEntity : class, new()
     {
         void Add(TEntity obj);
         TEntity GetById(int id);

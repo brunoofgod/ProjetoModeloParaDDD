@@ -3,8 +3,10 @@ using BrunoofgodArch.Api.ViewModels;
 using BrunoofgodArch.Application.Interface;
 using BrunoofgodArch.Domain.Entities;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Web.Http;
-
+using System.Web.Http.Results;
+using System.Web.Mvc;
 
 namespace ProjetoModeloDDD.Api.Controllers
 {
@@ -17,44 +19,41 @@ namespace ProjetoModeloDDD.Api.Controllers
             _contatoApp = contatoApp;
         }
 
-        public ContatoController()
+        // GET api/values/5
+        public JsonResult<Contato> Get(int id)
         {
 
-        }
+            return Json(_contatoApp.GetById(id));
+        }   
 
         // GET api/values/5
-        public string Get(int id)
+        public JsonResult<IEnumerable<Contato>> GetAll()
         {
-            return JsonConvert.SerializeObject(_contatoApp.GetById(id));
-        }
-
-        // GET api/values/5
-        public string GetAll(int id)
-        {
-            return JsonConvert.SerializeObject(_contatoApp.GetAll());
+            return Json(_contatoApp.GetAll());
         }
 
         // POST api/values
-        public string Post([FromBody]ContatoViewModel contatoViewModel)
+        [System.Web.Http.HttpPost]
+        public JsonResult<Contato> Post([FromBody]Contato contatoViewModel)
         {
-           var contato =  Mapper.Map<ContatoViewModel, Contato >(contatoViewModel);
-            _contatoApp.Add(contato);
-            return JsonConvert.SerializeObject(contato);
+            _contatoApp.Add(contatoViewModel);
+            return Json(contatoViewModel);
         }
 
         // PUT api/values/5
-        public string Put([FromBody]ContatoViewModel contatoViewModel)
+        [System.Web.Http.HttpPut]
+        public JsonResult<Contato> Put([FromBody]Contato contatoViewModel)
         {
-            var contato = Mapper.Map<ContatoViewModel, Contato>(contatoViewModel);
-            return JsonConvert.SerializeObject(contato);
+            _contatoApp.Update(contatoViewModel);
+            return Json(contatoViewModel);
         }
 
         // DELETE api/values/5
+        [System.Web.Http.HttpDelete]
         public string Delete(int id)
         {
             var contato =_contatoApp.GetById(id);
             _contatoApp.Remove(contato);
-
             return "true";
         }
     }

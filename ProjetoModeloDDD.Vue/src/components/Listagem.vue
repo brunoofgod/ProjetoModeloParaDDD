@@ -29,7 +29,8 @@ export default {
     return {
       msg: 'Welcome to Contatos'
     }
-  }
+  },
+  
 }
 </script>
 <style scopped>

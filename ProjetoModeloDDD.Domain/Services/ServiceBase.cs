@@ -5,7 +5,7 @@ using BrunoofgodArch.Domain.Interfaces.Services;
 
 namespace BrunoofgodArch.Domain.Services
 {
-    public class ServiceBase<TEntity> : IDisposable, IServiceBase<TEntity> where TEntity : class
+    public class ServiceBase<TEntity> : IDisposable, IServiceBase<TEntity> where TEntity : class, new()
     {
         private readonly IRepositoryBase<TEntity> _repository;
 

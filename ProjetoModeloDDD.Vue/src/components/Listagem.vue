@@ -1,6 +1,6 @@
 <template>
         <div>
-          <md-table v-once >
+          <md-table>
             <md-table-header>
               <md-table-row>
                 <md-table-head >Nome do vendedor</md-table-head>
@@ -13,18 +13,21 @@
                 <md-table-head >Data de contato</md-table-head>
               </md-table-row>
             </md-table-header>
-          <md-table-body>
             <md-table-row v-for="(contato, index) in contatos" :key="index">
+              <md-table-cell>{{contato.NomeDoVendedor}}</md-table-cell>
+              <md-table-cell>{{contato.NomeDaEmpresa}}</md-table-cell>
+              <md-table-cell>{{contato.NomeDoContato}}</md-table-cell>
+              <md-table-cell>{{contato.SobreNomeDoContato}}</md-table-cell>
+              <md-table-cell>{{contato.Email}}</md-table-cell>
+              <md-table-cell>{{contato.Telefone}}</md-table-cell>
+              <md-table-cell>{{getDataFormatada(contato.DataDeValidade)}}</md-table-cell>
+              <md-table-cell>{{getDataFormatada(contato.DataDeContato)}}</md-table-cell>
+              <md-table-cell>
+                <md-button class="md-icon-button md-raised">
+                  <md-icon>add</md-icon>
+                </md-button>
 
-              <md-table-cell></md-table-cell>
-              <md-table-cell>Um lvalor quaquer</md-table-cell>
-              <md-table-cell>Um lvalor quaquer</md-table-cell>
-              <md-table-cell>Um lvalor quaquer</md-table-cell>
-              <md-table-cell>Um lvalor quaquer</md-table-cell>
-              <md-table-cell>Um lvalor quaquer</md-table-cell>
-              <md-table-cell>Um lvalor quaquer</md-table-cell>
-              <md-table-cell>Um lvalor quaquer</md-table-cell>
-
+              </md-table-cell>
             </md-table-row>
           </md-table-body>
           </md-table>
@@ -45,17 +48,21 @@ export default {
     getContatos () {
       axios.get('http://localhost:58210/api/Contato/' )
         .then((resp) => {
-          contatos = JSON.parse(resp.data);
-          console.log(resp)
+          console.log(this);
+          this.contatos = resp.data;
         })
         .catch((err) => {
           console.log(err)
         })
-    }
+    },
+    getDataFormatada(data){
+      var dataFormatada = new Date(data)    
+      return dataFormatada.getDate() + "/" + dataFormatada.getMonth() + "/" +dataFormatada.getFullYear() ;
+    } 
   },
-  beforeMount(){
+  created(){
     this.getContatos();
-  }
+  },
 }
 </script>
 <style scopped>

@@ -125,11 +125,6 @@
 
 export default {
   name: 'app',
-  mounted(){
-    new Vue({
-      el: '#file-list'
-    });
-  }
 }
 </script>
 <style>

@@ -48,13 +48,21 @@ export default {
     getContatos () {
       axios.get('http://localhost:58210/api/Contato/' )
         .then((resp) => {
-          console.log(this);
+          console.log(resp);
           this.contatos = resp.data;
         })
         .catch((err) => {
           console.log(err)
         });
     },
+    deleteContato (id) {
+      axios.delete('http://localhost:58210/api/Contato/'+ id )
+        .then((resp) => {
+          this.contatos = resp.data;
+        })
+        .catch((err) => {
+        });
+    },    
     getDataFormatada(data){
       var dataFormatada = new Date(data)    
       return dataFormatada.getDate() + "/" + dataFormatada.getMonth() + "/" +dataFormatada.getFullYear() ;

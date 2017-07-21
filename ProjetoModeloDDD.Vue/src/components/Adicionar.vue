@@ -50,7 +50,7 @@
             </md-layout>  
             <md-layout class="padding15">
                 <label>Data de Contato</label>
-                    <datepicker v-model="dataDeContato"></datepicker>
+                    <datepicker v-model="dataDeContato" ></datepicker>
             </md-layout>  
             <md-layout>
                 <md-button class="md-icon-button md-raised" @click="enviarContato($event)" >
@@ -59,6 +59,15 @@
             </md-layout>  
         </md-layout>  
     </form>
+
+
+    <md-dialog-alert
+        :md-content="erro.content"
+        :md-ok-text="alert.ok"
+        @open="onOpen"
+        @close="onClose"
+        ref="erro">
+    </md-dialog-alert>
   </div>
 </template>
 
@@ -69,7 +78,6 @@ import axios from 'axios'
 export default {
     name: 'Adicionar',
     props:{
-
     },
     components: {
         Datepicker
@@ -84,6 +92,9 @@ export default {
             telefone : "",
             dataDeValidade : "",
             dataDeContato : "",
+            erro: {
+                content: 'Your post has been deleted!'
+            },
         }
     },
     methods: {
@@ -99,11 +110,10 @@ export default {
                     DataDeContato: this.dataDeContato,
                     DataDeValidade: this.dataDeValidade
                 }).then((resp) => {
-                console.log(this);
-                this.contatos = resp.data;
+                    window.location.href = '/';
                 })
                 .catch((err) => {
-                        
+                   this.$refs["erro"].open();
                 });
 
         }

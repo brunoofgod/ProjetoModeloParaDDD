@@ -53,7 +53,7 @@ export default {
         })
         .catch((err) => {
           console.log(err)
-        })
+        });
     },
     getDataFormatada(data){
       var dataFormatada = new Date(data)    

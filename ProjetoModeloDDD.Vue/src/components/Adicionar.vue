@@ -1,23 +1,23 @@
 <template>
   <div class="adicionar">
-    <form novalidate @submit.stop.prevent="submit">
+    <form >
         <md-layout >
             <md-layout  class="padding15">
                 <md-input-container >
                     <label>Nome do vendedor</label>
-                    <md-input maxlength="150"></md-input>
+                    <md-input maxlength="150" v-model="nomeDoVendedor"></md-input>
                 </md-input-container>
             </md-layout>
             <md-layout class="padding15">
                 <md-input-container >
                     <label>Nome da empresa</label>
-                    <md-input maxlength="150"></md-input>
+                    <md-input v-model="nomeDaEmpresa" maxlength="150"></md-input>
                 </md-input-container>
             </md-layout>
-            <md-layout  class="padding15">
+            <md-layout v-model="nomeDoContato" class="padding15">
                 <md-input-container >
                     <label>Nome do contato</label>
-                    <md-input maxlength="150"></md-input>
+                    <md-input v-model="nomeDoContato" maxlength="150"></md-input>
                 </md-input-container>
             </md-layout>
         </md-layout>
@@ -25,68 +25,90 @@
             <md-layout class="padding15">
                 <md-input-container  >
                     <label>Sobrenome do contato</label>
-                    <md-input maxlength="150"></md-input>
+                    <md-input v-model="sobreNomeDoContato" maxlength="150"></md-input>
                 </md-input-container>
             </md-layout>
             <md-layout class="padding15">
                 <md-input-container   >
                     <md-icon>mail_outline</md-icon>
                     <label class="padLef10">Email</label>
-                    <md-input maxlength="150"></md-input>
+                    <md-input v-model="email" maxlength="150"></md-input>
                 </md-input-container>
             </md-layout>  
             <md-layout class="padding15" >
                 <md-input-container >
                     <md-icon>phone</md-icon>
                     <label class="padLef10">Telefone</label>
-                    <md-input maxlength="70" type="number"></md-input>
+                    <md-input v-model="telefone" maxlength="70" type="number"></md-input>
                 </md-input-container>
             </md-layout>  
         </md-layout>  
         <md-layout >
             <md-layout class="padding15">
-                <md-input-container  >
-                    <label>Data de validade</label>
-                    <md-input maxlength="70"></md-input>
-                </md-input-container>
+                <label>Data de validade</label>
+                <datepicker v-model="dataDeValidade" ></datepicker>
             </md-layout>  
             <md-layout class="padding15">
-                <md-input-container  >
-                    <label>Data de contato</label>
-                    <md-input maxlength="70"></md-input>
-                </md-input-container>
+                <label>Data de Contato</label>
+                    <datepicker v-model="dataDeContato"></datepicker>
             </md-layout>  
-        <md-layout></md-layout>  
+            <md-layout>
+                <md-button class="md-icon-button md-raised" @click="enviarContato($event)" >
+                    <md-icon>add</md-icon>
+                </md-button>                
+            </md-layout>  
         </md-layout>  
-        <md-bottom-bar>
-            <md-bottom-bar-item md-iconset="icon-speedometer">Recents</md-bottom-bar-item>
-            <md-bottom-bar-item md-iconset="icon-heart" md-active>Favorites</md-bottom-bar-item>
-            <md-bottom-bar-item md-iconset="icon-cursor">Nearby</md-bottom-bar-item>
-        </md-bottom-bar> 
     </form>
   </div>
 </template>
 
 <script>
-    export default {
-        name: 'Adicionar',
-        props:{
+import Datepicker from 'vuejs-datepicker';
+import axios from 'axios'
 
-        },
-        data () {
-            return {
-                nomeDoVendedor : String,
-                nomeDaEmpresa : String,
-                nomeDoContato : String,
-                sobreNomeDoContato : String,
-                email : String,
-                dataCadastro : String,
-                telefone : String,
-                dataDeValidade : String,
-                dataDeContato : String
-            }
+export default {
+    name: 'Adicionar',
+    props:{
+
+    },
+    components: {
+        Datepicker
+    },
+    data () {
+        return {
+            nomeDoVendedor : "",
+            nomeDaEmpresa :  "",
+            nomeDoContato : "",
+            sobreNomeDoContato : "",
+            email :  "",
+            telefone : "",
+            dataDeValidade : "",
+            dataDeContato : "",
+        }
+    },
+    methods: {
+        enviarContato(){
+            axios.post('http://localhost:58210/api/Contato/',
+                 {
+                    NomeDoVendedor: this.nomeDoVendedor,
+                    NomeDaEmpresa: this.nomeDaEmpresa,
+                    NomeDoContato: this.nomeDoContato,
+                    SobreNomeDoContato: this.sobreNomeDoContato,
+                    Email: this.email,
+                    Telefone: this.telefone,
+                    DataDeContato: this.dataDeContato,
+                    DataDeValidade: this.dataDeValidade
+                }).then((resp) => {
+                console.log(this);
+                this.contatos = resp.data;
+                })
+                .catch((err) => {
+                        
+                });
+
         }
     }
+}
 </script>
 <style scopped>
     .padding15{

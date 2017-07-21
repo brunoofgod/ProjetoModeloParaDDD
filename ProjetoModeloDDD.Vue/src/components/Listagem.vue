@@ -23,10 +23,16 @@
               <md-table-cell>{{getDataFormatada(contato.DataDeValidade)}}</md-table-cell>
               <md-table-cell>{{getDataFormatada(contato.DataDeContato)}}</md-table-cell>
               <md-table-cell>
-                <md-button @click="deleteContato(contato.Id)" class="md-icon-button md-raised">
+                <md-button @click="deleteContato(contato.ContatoId)" class="md-icon-button md-raised">
                   <md-icon>delete</md-icon>
                 </md-button>
-
+                <md-dialog-alert
+                    :md-content="erro.content"
+                    :md-ok-text="erro.ok"
+                    @open="onOpen"
+                    @close="onClose"
+                    ref="erro">
+                </md-dialog-alert>
               </md-table-cell>
             </md-table-row>
           </md-table-body>
@@ -41,7 +47,11 @@ export default {
   name: 'Listagem',
   data () {
     return {
-      contatos: []
+      contatos: [],
+        erro: {
+        content: 'Your post has been deleted!',
+        ok: "Ok"
+      },
     }
   },  
   methods: {

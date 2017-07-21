@@ -40,14 +40,14 @@ namespace BrunoofgodArch.MVC.ViewModels
         public string Email { get; set; }
 
         [ScaffoldColumn(false)]
-        public DateTime DataCadastro { get; set; }
+        public DateTime? DataCadastro { get; set; }
 
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
 
         [Display(Name = "Data de validade")]
-        public DateTime DataDeValidade { get; set; }
+        public DateTime? DataDeValidade { get; set; }
 
         [Display(Name = "Data de contato")]
-        public DateTime DataDeContato { get; set; }
+        public DateTime? DataDeContato { get; set; }
     }
 }

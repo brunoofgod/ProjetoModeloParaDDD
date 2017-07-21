@@ -63,7 +63,7 @@
 
     <md-dialog-alert
         :md-content="erro.content"
-        :md-ok-text="alert.ok"
+        :md-ok-text="erro.ok"
         @open="onOpen"
         @close="onClose"
         ref="erro">
@@ -93,7 +93,8 @@ export default {
             dataDeValidade : "",
             dataDeContato : "",
             erro: {
-                content: 'Your post has been deleted!'
+                content: 'Ocorreu um erro ao incluir o contato.',
+                ok : "OK"
             },
         }
     },

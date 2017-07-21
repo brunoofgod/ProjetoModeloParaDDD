@@ -10,9 +10,9 @@ namespace BrunoofgodArch.Domain.Entities
         public string NomeDoContato { get; set; }
         public string SobreNomeDoContato { get; set; }
         public string Email { get; set; }
-        public int Telefone { get; set; }
-        public DateTime DataDeContato { get; set; }
-        public DateTime DataDeValidade { get; set; }
-        public DateTime DataCadastro { get; set; }
+        public string Telefone { get; set; }
+        public DateTime? DataDeContato { get; set; }
+        public DateTime? DataDeValidade { get; set; }
+        public DateTime? DataCadastro { get; set; }
     }
 }

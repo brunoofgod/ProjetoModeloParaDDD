@@ -50,11 +50,12 @@ namespace ProjetoModeloDDD.Api.Controllers
 
         // DELETE api/values/5
         [System.Web.Http.HttpDelete]
-        public string Delete(int id)
+        public JsonResult<IEnumerable<Contato>> Delete(int id)
         {
             var contato =_contatoApp.GetById(id);
             _contatoApp.Remove(contato);
-            return "true";
+
+            return Json(_contatoApp.GetAll());
         }
     }
 }

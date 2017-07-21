@@ -49,7 +49,7 @@ export default {
     return {
       contatos: [],
         erro: {
-        content: 'Your post has been deleted!',
+        content: 'Ocorreu um erro ao excluir o contato.',
         ok: "Ok"
       },
     }

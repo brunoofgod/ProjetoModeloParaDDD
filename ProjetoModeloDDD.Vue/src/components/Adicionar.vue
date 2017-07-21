@@ -93,7 +93,7 @@ export default {
             dataDeValidade : "",
             dataDeContato : "",
             erro: {
-                content: 'Your post has been deleted!',
+                content: 'Ocorreu um erro ao incluir o contato.',
                 ok : "OK"
             },
         }

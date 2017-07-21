@@ -25,10 +25,19 @@ namespace BrunoofgodArch.Infra.Data.EntityConfig
                 .IsRequired();
 
             Property(c => c.NomeDaEmpresa)
+                .IsOptional()
                 .HasMaxLength(150);
 
             Property(c => c.SobreNomeDoContato)
                 .HasMaxLength(150);
+
+            Property(c => c.DataCadastro)
+                .IsOptional();
+            Property(c => c.DataDeContato)
+                .IsOptional();
+
+            Property(c => c.DataDeValidade)
+                .IsOptional();
         }
     }
 }

@@ -23,8 +23,8 @@
               <md-table-cell>{{getDataFormatada(contato.DataDeValidade)}}</md-table-cell>
               <md-table-cell>{{getDataFormatada(contato.DataDeContato)}}</md-table-cell>
               <md-table-cell>
-                <md-button class="md-icon-button md-raised">
-                  <md-icon>add</md-icon>
+                <md-button @click="deleteContato(contato.Id)" class="md-icon-button md-raised">
+                  <md-icon>delete</md-icon>
                 </md-button>
 
               </md-table-cell>

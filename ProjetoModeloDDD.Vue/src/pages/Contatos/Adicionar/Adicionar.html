@@ -1,9 +1,10 @@
 <div class="Adicionar">
     <md-layout >
         <md-layout  class="padding15">
-            <md-input-container >
+            <md-input-container :class="validador.email">
                 <label>Nome do vendedor</label>
                 <md-input maxlength="150" v-model="nomeDoVendedor"></md-input>
+                <span class="md-error">O nome do vendedor é obrigatório.</span>
             </md-input-container>
         </md-layout>
         <md-layout class="padding15">
@@ -13,9 +14,10 @@
             </md-input-container>
         </md-layout>
         <md-layout v-model="nomeDoContato" class="padding15">
-            <md-input-container >
+            <md-input-container :class="validador.email">
                 <label>Nome do contato</label>
                 <md-input v-model="nomeDoContato" maxlength="150"></md-input>
+                <span class="md-error">O nome do contato é obrigatório.</span>
             </md-input-container>
         </md-layout>
     </md-layout>
@@ -27,17 +29,19 @@
             </md-input-container>
         </md-layout>
         <md-layout class="padding15">
-            <md-input-container   >
+            <md-input-container :class="validador.email" >
                 <md-icon>mail_outline</md-icon>
                     <label class="padLef10">Email</label>
                 <md-input v-model="email" maxlength="150"></md-input>
+                <span class="md-error">O email é obrigatório.</span>
             </md-input-container>
         </md-layout>  
         <md-layout class="padding15" >
-            <md-input-container >
+            <md-input-container :class="validador.email">
                 <md-icon>phone</md-icon>
                 <label class="padLef10">Telefone</label>
                 <md-input v-model="telefone" maxlength="70" type="number"></md-input>
+                <span class="md-error">O telefone é obrigatório.</span>
             </md-input-container>
         </md-layout>  
     </md-layout>  
@@ -56,12 +60,9 @@
             <md-icon>save</md-icon>
         </md-button> 
     </md-layout>  
-    
     <md-dialog-alert
         :md-content="erro.content"
         :md-ok-text="erro.ok"
-        @open="onOpen"
-        @close="onClose"
         ref="erro">
     </md-dialog-alert>
 </div>

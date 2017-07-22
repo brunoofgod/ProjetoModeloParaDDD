@@ -1,0 +1,67 @@
+<div class="Adicionar">
+    <md-layout >
+        <md-layout  class="padding15">
+            <md-input-container >
+                <label>Nome do vendedor</label>
+                <md-input maxlength="150" v-model="nomeDoVendedor"></md-input>
+            </md-input-container>
+        </md-layout>
+        <md-layout class="padding15">
+            <md-input-container >
+                <label>Nome da empresa</label>
+                <md-input v-model="nomeDaEmpresa" maxlength="150"></md-input>
+            </md-input-container>
+        </md-layout>
+        <md-layout v-model="nomeDoContato" class="padding15">
+            <md-input-container >
+                <label>Nome do contato</label>
+                <md-input v-model="nomeDoContato" maxlength="150"></md-input>
+            </md-input-container>
+        </md-layout>
+    </md-layout>
+    <md-layout >
+        <md-layout class="padding15">
+            <md-input-container  >
+                <label>Sobrenome do contato</label>
+                <md-input v-model="sobreNomeDoContato" maxlength="150"></md-input>
+            </md-input-container>
+        </md-layout>
+        <md-layout class="padding15">
+            <md-input-container   >
+                <md-icon>mail_outline</md-icon>
+                    <label class="padLef10">Email</label>
+                <md-input v-model="email" maxlength="150"></md-input>
+            </md-input-container>
+        </md-layout>  
+        <md-layout class="padding15" >
+            <md-input-container >
+                <md-icon>phone</md-icon>
+                <label class="padLef10">Telefone</label>
+                <md-input v-model="telefone" maxlength="70" type="number"></md-input>
+            </md-input-container>
+        </md-layout>  
+    </md-layout>  
+    <md-layout >
+        <md-layout class="padding15">
+            <label>Data de validade</label>
+            <datepicker v-model="dataDeValidade" ></datepicker>
+        </md-layout>  
+        <md-layout class="padding15">
+            <label>Data de Contato</label>
+            <datepicker v-model="dataDeContato" ></datepicker>
+        </md-layout>  
+    </md-layout>  
+    <md-layout>  
+        <md-button class="md-fab md-warn md-fab-bottom-right" @click="enviarContato($event)">
+            <md-icon>save</md-icon>
+        </md-button> 
+    </md-layout>  
+    
+    <md-dialog-alert
+        :md-content="erro.content"
+        :md-ok-text="erro.ok"
+        @open="onOpen"
+        @close="onClose"
+        ref="erro">
+    </md-dialog-alert>
+</div>

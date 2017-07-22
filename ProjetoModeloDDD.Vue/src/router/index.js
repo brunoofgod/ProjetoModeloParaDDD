@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Listagem from '@/components/Listagem'
-import Adicionar from '@/components/Adicionar'
+import Listagem from '@/pages/Contatos/Listagem/Listagem'
+import Adicionar from '@/pages/Contatos/Adicionar/Adicionar'
 
 Vue.use(Router)
 

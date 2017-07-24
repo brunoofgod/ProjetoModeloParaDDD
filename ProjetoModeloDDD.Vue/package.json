@@ -16,7 +16,8 @@
     "style-loader": "^0.18.2",
     "vue": "^2.2.6",
     "vue-material": "^0.7.4",
-    "vue-router": "^2.3.1"
+    "vue-router": "^2.3.1",
+    "vuejs-datepicker": "^0.9.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
